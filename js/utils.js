@@ -27,9 +27,33 @@
     }
   };
 
+  var getRank = function (wizard) {
+    var rank = 0;
+
+    if (wizard.colorCoat === window.player.coatColor) {
+      rank += 2;
+    }
+    if (wizard.colorEyes === window.player.eyesColor) {
+      rank += 1;
+    }
+    return rank;
+  };
+
+  var nameSort = function (left, right) {
+    if (left < right) {
+      return 1;
+    } else if (left > right) {
+      return -1;
+    } else {
+      return 0;
+    }
+  };
+
   window.utils = {
     getRandomElement: getRandomElement,
     generateRandomColor: generateRandomColor,
-    getMaxElement: getMaxElement
+    getMaxElement: getMaxElement,
+    getRank: getRank,
+    nameSort: nameSort
   };
 })();
